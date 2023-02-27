@@ -1,20 +1,10 @@
 import React from "react";
-import countriesJson from "../countries.json";
-import { useState } from "react";
 
-const Selector = () => {
-  const [country, setCountry] = useState("");
-  const handleSelect = (e) => {
-    setCountry(e.target.value);
-  };
-  const getCounrtyData = () => {
-    fetch(`https://monotein-books.vercel.app/api/corona-tracker/country/${country}`)
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  };
+const Selector = ({countriesJson,setCountry,getCounrtyData}) => {
   return (
     <>
-      <select onChange={handleSelect}>
+      <select onChange={(e) => setCountry(e.target.value)}>
+        <option> Select A Country</option>
         {countriesJson.map((country, index) => (
           <option key={index} value={country.Slug}>
             {country.Country}
