@@ -5,14 +5,16 @@ import Title from "../components/Title";
 
 const Toppage = (props) => {
   return (
-    <div>
-      <Title />
-      <Selector
-        countriesJson={props.countriesJson}
-        setCountry={props.setCountry}
-        getCounrtyData={props.getCounrtyData}
-      />
-      <Result />
+    <div className="top-page-container">
+      <div>
+        <Title />
+        <Selector
+          countriesJson={props.countriesJson}
+          setCountry={props.setCountry}
+          getCounrtyData={props.getCounrtyData}
+        />
+        <Result countryData={props.countryData} />
+      </div>
     </div>
   );
 };
