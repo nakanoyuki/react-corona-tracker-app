@@ -7,8 +7,12 @@ const Card = (props) => {
         <div key={index} className="card">
           <div>
             <h2>{singleData.Country}</h2>
-            <p>新規感染者数:{singleData.NewConfirmed}</p>
-            <p>感染者総数:{singleData.TotalConfirmed}</p>
+            <p>
+              新規感染者数:<span>{singleData.NewConfirmed}</span>
+            </p>
+            <p>
+              感染者総数:<span>{singleData.TotalConfirmed}</span>
+            </p>
           </div>
         </div>
       ))}
