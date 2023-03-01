@@ -21,7 +21,7 @@ function App() {
       `https://monotein-books.vercel.app/api/corona-tracker/country/${country}`
     )
       .then((res) => res.json())
-      .then((data) =>
+      .then((data) => {
         setCountryData({
           date: data[data.length - 1].Date,
           newConfirmed:
@@ -30,15 +30,17 @@ function App() {
           newRecovered:
             data[data.length - 1].Recovered - data[data.length - 2].Recovered,
           totalRecovered: data[data.length - 1].Recovered,
-        })
-      );
+        });
+      })
+      .catch((err) => alert("エラーが発生しました"));
   };
 
   useEffect(() => {
     fetch("https://monotein-books.vercel.app/api/corona-tracker/summary")
       .then((res) => res.json())
-      .then((data) => setallCountriesData(data.Countries));
-  },[]);
+      .then((data) => setallCountriesData(data.Countries))
+      .catch((err) => alert("エラーが発生"));
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>
@@ -56,12 +58,7 @@ function App() {
           />
           <Route
             path="/world"
-            element={
-              <WorldPage
-                allCountriesData={allCountriesData}
-               
-              />
-            }
+            element={<WorldPage allCountriesData={allCountriesData} />}
           />
         </Routes>
       </BrowserRouter>
