@@ -6,6 +6,8 @@ import countriesJson from "./countries.json";
 import WorldPage from "./pages/WorldPage";
 
 function App() {
+  // getDataボタン押したらtrue(ローディング表示)
+  const [loading, setLoading] = useState(false);
   const [country, setCountry] = useState();
   const [countryData, setCountryData] = useState({
     date: "",
@@ -17,6 +19,7 @@ function App() {
 
   const [allCountriesData, setallCountriesData] = useState([]);
   const getCounrtyData = () => {
+    setLoading(true)
     fetch(
       `https://monotein-books.vercel.app/api/corona-tracker/country/${country}`
     )
@@ -31,6 +34,8 @@ function App() {
             data[data.length - 1].Recovered - data[data.length - 2].Recovered,
           totalRecovered: data[data.length - 1].Recovered,
         });
+        // データ取得完了、データ書き込まれた後
+        setLoading(false)
       })
       .catch((err) => alert("エラーが発生しました"));
   };
@@ -53,6 +58,7 @@ function App() {
                 setCountry={setCountry}
                 getCounrtyData={getCounrtyData}
                 countryData={countryData}
+                loading={loading}
               />
             }
           />
