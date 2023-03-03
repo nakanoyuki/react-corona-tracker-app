@@ -7,7 +7,7 @@ import Title from "../components/Title";
 const Toppage = ({
   countriesJson,
   setCountry,
-  getCounrtyData,
+
   countryData,
   loading
 }) => {
@@ -19,7 +19,7 @@ const Toppage = ({
         <Selector
           countriesJson={countriesJson}
           setCountry={setCountry}
-          getCounrtyData={getCounrtyData}
+     
         />
         <Result countryData={countryData} loading={loading}/>
       </div>
