@@ -1,23 +1,45 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import TopPage from "./pages/TopPage";
 import countriesJson from "./countries.json";
 import WorldPage from "./pages/WorldPage";
 
+type CountryDataType = {
+  date: string;
+  newConfirmed: number;
+  totalConfirmed: number;
+  newRecovered: number;
+  totalRecovered: number;
+};
+interface SingleCountryDataType {
+  Country: string;
+  NewConfirmed: number;
+  TotalConfirmed: number;
+}
+
+interface AllCountryDataTypeArry extends Array<SingleCountryDataType> {}
+
 function App() {
   // getDataボタン押したらtrue(ローディング表示)
-  const [loading, setLoading] = useState(false);
-  const [country, setCountry] = useState("japan");
-  const [countryData, setCountryData] = useState({
+  const [loading, setLoading] = useState<boolean>(false);
+  const [country, setCountry] = useState<string>("japan");
+  const [countryData, setCountryData] = useState<CountryDataType>({
     date: "",
-    newConfirmed: "",
-    totalConfirmed: "",
-    newRecovered: "",
-    totalRecovered: "",
+    newConfirmed: 0,
+    totalConfirmed: 0,
+    newRecovered: 0,
+    totalRecovered: 0,
   });
 
-  const [allCountriesData, setallCountriesData] = useState([]);
+  const [allCountriesData, setallCountriesData] =
+    useState<AllCountryDataTypeArry>([
+      {
+        Country: "",
+        NewConfirmed: 0,
+        TotalConfirmed: 0,
+      },
+    ]);
 
   useEffect(() => {
     const getCounrtyData = () => {
@@ -58,10 +80,10 @@ function App() {
             path="/"
             element={
               <TopPage
-                countriesJson={countriesJson}
                 setCountry={setCountry}
                 countryData={countryData}
                 loading={loading}
+                countriesJson={countriesJson}
               />
             }
           />

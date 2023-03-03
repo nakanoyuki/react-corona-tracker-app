@@ -1,10 +1,20 @@
 import React from "react";
-import Loading from "../components/Loading";
+import Loading from "./Loading";
 
-const Result = ({ countryData, loading }) => {
+type ResultsType = {
+  countryData: {
+    date: string;
+    newConfirmed: number;
+    totalConfirmed: number;
+    newRecovered: number;
+    totalRecovered: number;
+  };
+  loading: boolean;
+};
+
+const Result = ({ countryData, loading }: ResultsType) => {
   const { date, newConfirmed, totalConfirmed, newRecovered, totalRecovered } =
     countryData;
-  console.log(countryData);
   return (
     <div className="results-container">
       {loading ? (
