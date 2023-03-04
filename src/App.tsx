@@ -4,21 +4,9 @@ import "./App.css";
 import TopPage from "./pages/TopPage";
 import countriesJson from "./countries.json";
 import WorldPage from "./pages/WorldPage";
+import {CountryDataType,AllCountryDataTypeArry} from "./type"
 
-type CountryDataType = {
-  date: string;
-  newConfirmed: number;
-  totalConfirmed: number;
-  newRecovered: number;
-  totalRecovered: number;
-};
-interface SingleCountryDataType {
-  Country: string;
-  NewConfirmed: number;
-  TotalConfirmed: number;
-}
 
-interface AllCountryDataTypeArry extends Array<SingleCountryDataType> {}
 
 function App() {
   // getDataボタン押したらtrue(ローディング表示)

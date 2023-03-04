@@ -1,15 +1,7 @@
 import React, { useState } from "react";
-interface SingleCountryDataType {
-  Country: string;
-  NewConfirmed: number;
-  TotalConfirmed: number;
-}
+import { CardType } from "../type";
 
-interface WorldPageType {
-  allCountriesData: Array<SingleCountryDataType>;
-}
-
-const Card = ({ allCountriesData }: WorldPageType) => {
+const Card = ({ allCountriesData }: CardType) => {
   return (
     <div className="card-container">
       {allCountriesData.map((singleData, index) => (

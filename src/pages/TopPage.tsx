@@ -3,20 +3,8 @@ import Header from "../components/Header";
 import Result from "../components/Result";
 import Selector from "../components/Selector";
 import Title from "../components/Title";
+import { TopPage } from "../type";
 
-
-type TopPage = {
-  countriesJson: { Country: string; Slug: string }[];
-  setCountry: React.Dispatch<React.SetStateAction<string>>;
-  countryData: {
-    date: string;
-    newConfirmed: number;
-    totalConfirmed: number;
-    newRecovered: number;
-    totalRecovered: number;
-  };
-  loading: boolean;
-};
 const Toppage = ({
   countriesJson,
   setCountry,

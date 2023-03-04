@@ -1,16 +1,6 @@
 import React from "react";
+import { ResultsType } from "../type";
 import Loading from "./Loading";
-
-type ResultsType = {
-  countryData: {
-    date: string;
-    newConfirmed: number;
-    totalConfirmed: number;
-    newRecovered: number;
-    totalRecovered: number;
-  };
-  loading: boolean;
-};
 
 const Result = ({ countryData, loading }: ResultsType) => {
   const { date, newConfirmed, totalConfirmed, newRecovered, totalRecovered } =
