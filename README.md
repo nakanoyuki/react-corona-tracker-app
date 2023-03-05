@@ -1,3 +1,6 @@
+# 新型コロナウイルス感染者数ダッシュボード
+https://react-corona-tracker-app-gamma.vercel.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
